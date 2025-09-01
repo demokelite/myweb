@@ -47,7 +47,7 @@
                 :class="{ active: currentRoute === '/contact' }"
               >
                 联系我
-              </a>
+              </router-link>
             </li>
           </ul>
         </nav>
