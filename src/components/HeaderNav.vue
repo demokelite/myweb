@@ -41,10 +41,10 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <a 
-                href="https://wx.mail.qq.com" 
+              <router-link 
+                to="/contact" 
                 class="nav-link"
-                target="_blank"
+                :class="{ active: currentRoute === '/contact' }"
               >
                 联系我
               </a>
