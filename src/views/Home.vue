@@ -4,9 +4,9 @@
     <HeaderNav />
     
     <!-- 英雄区域 -->
-    <section class="hero-section">
+    <section class="hero-section gradient-flow">
       <div class="hero-content">
-        <h1 class="hero-title">欢迎来到我的个人网站</h1>
+        <h1 class="hero-title text-gradient">欢迎来到我的个人网站</h1>
         <p class="hero-subtitle">探索我的作品和故事</p>
         <div class="hero-buttons">
           <el-button 
@@ -208,7 +208,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   text-align: center;
   padding: 0 20px;

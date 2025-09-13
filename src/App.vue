@@ -32,6 +32,57 @@ body {
   background-color: #ffffff;
 }
 
+/* 流动渐变色动画 */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-flow {
+  background: linear-gradient(
+    -45deg,
+    #ff6b6b,
+    #556270,
+    #4ecdc4,
+    #45b7d1,
+    #96ceb4,
+    #feca57,
+    #ff9ff3,
+    #54a0ff,
+    #ff6b6b
+  );
+  background-size: 600% 600%;
+  animation: gradientFlow 8s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 文本渐变色 */
+.text-gradient {
+  background: linear-gradient(
+    -45deg,
+    #ff6b6b,
+    #4ecdc4,
+    #45b7d1,
+    #feca57,
+    #ff9ff3,
+    #54a0ff
+  );
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientFlow 6s ease infinite;
+  display: inline-block;
+}
+
 #app {
   min-height: 100vh;
 }

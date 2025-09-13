@@ -16,6 +16,7 @@ import RandomImage8 from '@/views/random_pages/RandomImage8.vue';
 import PrivacyPolicy from '@/views/PrivacyPolicy.vue';
 import TermsOfService from '@/views/TermsOfService.vue';
 import CookiePolicy from '@/views/CookiePolicy.vue';
+import Donate from '@/views/Donate.vue';
 
 Vue.use(Router);
 
@@ -102,6 +103,11 @@ export default new Router({
       path: '/cookie-policy',
       name: 'cookie-policy',
       component: CookiePolicy
+    },
+    {
+      path: '/donate',
+      name: 'donate',
+      component: Donate
     }
   ],
   // eslint-disable-next-line no-unused-vars

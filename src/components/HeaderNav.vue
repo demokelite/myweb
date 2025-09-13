@@ -6,7 +6,7 @@
         <div class="logo">
           <router-link to="/" class="logo-link">
             <div class="logo-icon">Z</div>
-            <span class="logo-text">知识混子</span>
+            <span class="logo-text text-gradient">知识混子</span>
           </router-link>
         </div>
         
@@ -41,13 +41,22 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <a 
-                href="https://wx.mail.qq.com" 
+              <router-link 
+                to="/contact" 
                 class="nav-link"
-                target="_blank"
+                :class="{ active: currentRoute === '/contact' }"
               >
                 联系我
-              </a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link 
+                to="/donate" 
+                class="nav-link"
+                :class="{ active: currentRoute === '/donate' }"
+              >
+                支持我
+              </router-link>
             </li>
           </ul>
         </nav>
@@ -113,14 +122,24 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <a 
-                href="https://example.com/contact" 
+              <router-link 
+                to="/contact" 
                 class="nav-link"
                 :class="{ active: currentRoute === '/contact' }"
-                target="_blank"
+                @click="toggleMobileMenu"
               >
                 联系我
-              </a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link 
+                to="/donate" 
+                class="nav-link"
+                :class="{ active: currentRoute === '/donate' }"
+                @click="toggleMobileMenu"
+              >
+                支持我
+              </router-link>
             </li>
         </ul>
         <div class="mobile-menu-footer">
@@ -253,6 +272,12 @@ export default {
   margin-right: 10px;
 }
 
+.logo-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
 .logo-text {
   font-size: 20px;
   font-weight: bold;
@@ -303,8 +328,22 @@ export default {
 }
 
 .nav-link.active {
-  color: #667eea;
   background: rgba(102, 126, 234, 0.1);
+}
+
+.nav-link.active span {
+  background: linear-gradient(
+    -45deg,
+    #667eea,
+    #764ba2,
+    #ee6c4d,
+    #00b4d8
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientFlow 10s ease infinite;
 }
 
 .nav-link.active::after {

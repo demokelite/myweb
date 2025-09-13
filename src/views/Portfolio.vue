@@ -4,9 +4,9 @@
     <HeaderNav />
     
     <!-- 页面标题 -->
-    <section class="page-title-section">
+    <section class="page-title-section gradient-flow">
       <div class="container">
-        <h1>我的作品集</h1>
+        <h1 class="text-gradient">我的作品集</h1>
         <p>探索我的项目和创作</p>
       </div>
     </section>
@@ -328,6 +328,26 @@ export default {
 </script>
 
 <style scoped>
+/* 确保动画效果能应用到所有子元素 */
+.page-title-section.gradient-flow {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-title-section.gradient-flow h1.text-gradient {
+  display: inline-block;
+  /* 增加文本清晰度 */
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  font-weight: bold;
+}
+
+.page-title-section.gradient-flow p {
+  color: white;
+  opacity: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
 .portfolio-container {
   font-family: 'Arial', sans-serif;
 }

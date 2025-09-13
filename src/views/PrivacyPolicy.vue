@@ -5,8 +5,8 @@
     
     <!-- 页面内容 -->
     <div class="container">
-      <div class="page-header">
-        <h1>隐私政策</h1>
+      <div class="page-header gradient-flow">
+        <h1 class="text-gradient">隐私政策</h1>
         <div class="breadcrumb">
           <router-link to="/">首页</router-link> &gt; 隐私政策
         </div>
@@ -89,6 +89,30 @@ export default {
 </script>
 
 <style scoped>
+/* 确保动画效果能应用到所有子元素 */
+.page-header.gradient-flow {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.page-header.gradient-flow h1.text-gradient {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.page-header.gradient-flow .breadcrumb {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.page-header.gradient-flow .breadcrumb a {
+  color: white;
+  font-weight: bold;
+}
 .privacy-policy-page {
   padding: 80px 0;
   background-color: #f8f9fa;
