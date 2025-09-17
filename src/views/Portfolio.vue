@@ -6,8 +6,10 @@
     <!-- 页面标题 -->
     <section class="page-title-section gradient-flow">
       <div class="container">
-        <h1 class="text-gradient">我的作品集</h1>
-        <p>探索我的项目和创作</p>
+        <div class="title-content">
+          <h1 class="text-gradient">我的作品集</h1>
+          <p>探索我的项目和创作</p>
+        </div>
       </div>
     </section>
 
@@ -328,10 +330,14 @@ export default {
 </script>
 
 <style scoped>
-/* 确保动画效果能应用到所有子元素 */
+/* 确保动画效果能应用到所有子元素，并实现垂直居中 */
 .page-title-section.gradient-flow {
   position: relative;
   overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-title-section.gradient-flow h1.text-gradient {
@@ -348,22 +354,40 @@ export default {
   opacity: 1;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
+
 .portfolio-container {
   font-family: 'Arial', sans-serif;
 }
 
 /* 页面标题部分 */
 .page-title-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
   color: white;
-  padding: 80px 0;
-  text-align: center;
+}
+
+.page-title-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(24, 144, 255, 0.1) 0%, rgba(24, 144, 255, 0) 70%);
+  z-index: -1;
 }
 
 .page-title-section .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.title-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .page-title-section h1 {
