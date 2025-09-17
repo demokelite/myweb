@@ -17,9 +17,10 @@
             </p>
             <div class="social-links">
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><i class="el-icon-github"></i></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn"><i class="el-icon-link"></i></a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn"><i class="el-icon-link"></i></a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter"><i class="el-icon-document"></i></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram"><i class="el-icon-picture"></i></a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram"><i class="el-icon-picture"></i></a>
+              <a href="https://weixin.qq.com" target="_blank" rel="noopener noreferrer" class="social-link" title="微信"><i class="el-icon-chat-line-square"></i></a>
             </div>
           </div>
           
@@ -58,6 +59,8 @@
             </ul>
           </div>
           
+      
+          
         </div>
       </div>
     </div>
@@ -73,22 +76,19 @@
             <a href="/privacy-policy" class="footer-bottom-link">隐私政策</a>
             <a href="/terms-of-service" class="footer-bottom-link">服务条款</a>
             <a href="/cookie-policy" class="footer-bottom-link">Cookie政策</a>
+            <a href="/sitemap" class="footer-bottom-link">网站地图</a>
           </div>
         </div>
       </div>
     </div>
+    
+
   </footer>
 </template>
 
 <script>
 export default {
   name: 'Footer',
-  data() {
-    return {
-      email: '',
-      subscribing: false
-    };
-  },
   mounted() {
     // 添加页面滚动事件，控制返回顶部按钮的显示
     window.addEventListener('scroll', () => {
@@ -102,34 +102,6 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', () => {});
-  },
-  methods: {
-    subscribe() {
-      // 简单的邮箱验证
-      const emailRegex = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
-      
-      if (!emailRegex.test(this.email)) {
-        this.$message({
-          message: '请输入有效的邮箱地址',
-          type: 'error'
-        });
-        return;
-      }
-      
-      this.subscribing = true;
-      
-      // 模拟订阅请求
-      setTimeout(() => {
-        this.subscribing = false;
-        this.email = '';
-        
-        this.$message({
-          message: '订阅成功！感谢您的支持。',
-          type: 'success',
-          duration: 5000
-        });
-      }, 1500);
-    }
   }
 };
 </script>
@@ -384,6 +356,29 @@ export default {
   box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
+/* 支付方式 */
+.payment-methods {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.payment-text {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 32px;
+  color: #667eea;
+}
+
 /* 页脚底部 */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -427,6 +422,16 @@ export default {
   
   .footer-grid {
     gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .payment-methods {
+    padding: 20px 0;
+  }
+  
+  .payment-icons {
+    gap: 15px;
+    font-size: 28px;
   }
 }
 
