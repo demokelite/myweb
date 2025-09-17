@@ -67,7 +67,7 @@
       <div class="container">
         <div class="footer-bottom-content">
           <div class="copyright">
-            © 2023 张小明. 保留所有权利.
+            © 2025 知识混子. 保留所有权利.
           </div>
           <div class="footer-bottom-links">
             <a href="/privacy-policy" class="footer-bottom-link">隐私政策</a>
