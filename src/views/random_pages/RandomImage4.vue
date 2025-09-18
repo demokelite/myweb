@@ -6,7 +6,7 @@
     <!-- 页面标题 -->
     <section class="page-title-section gradient-flow">
       <div class="container">
-        <h1 class="text-gradient">美女图片</h1>
+        <h1 class="text-gradient">二刺螈图片</h1>
         <p>探索精美的美女图片内容</p>
       </div>
     </section>
