@@ -51,109 +51,22 @@
                 </div>
                 <div class="contact-text">
                   <h3>地址</h3>
-                  <p>北京市海淀区中关村科技园区8号楼</p>
+                  <p>代码穹顶下・内存分页街区・递归环巷第 3 次自调用处
+二叉树年轮广场的左子叶分叉口・哈希函数编织的门牌号 0x7F3C</p>
                 </div>
               </div>
             </div>
             
             <div class="social-links">
-              <a href="#" class="social-link" title="GitHub"><i class="el-icon-github"></i></a>
-              <a href="#" class="social-link" title="LinkedIn"><i class="el-icon-link"></i></a>
-              <a href="#" class="social-link" title="Twitter"><i class="el-icon-document"></i></a>
-              <a href="#" class="social-link" title="Instagram"><i class="el-icon-picture"></i></a>
-            </div>
+              <a href="https://github.com/demokelite" class="social-link" title="GitHub">
+                <img src="../assets/github.svg" />
+                </a>
+               </div>
           </div>
           
-          <!-- 联系表单（已注释）
-          <div class="contact-form">
-            <h2>发送消息</h2>
-            <el-form 
-              ref="contactFormRef" 
-              :model="contactForm" 
-              :rules="contactRules"
-              class="form"
-            >
-              <el-form-item label="姓名" prop="name">
-                <el-input 
-                  v-model="contactForm.name" 
-                  placeholder="请输入您的姓名"
-                  :validate-event="false"
-                />
-              </el-form-item>
-              
-              <el-form-item label="邮箱" prop="email">
-                <el-input 
-                  v-model="contactForm.email" 
-                  placeholder="请输入您的邮箱"
-                  type="email"
-                  :validate-event="false"
-                />
-              </el-form-item>
-              
-              <el-form-item label="主题" prop="subject">
-                <el-input 
-                  v-model="contactForm.subject" 
-                  placeholder="请输入消息主题"
-                  :validate-event="false"
-                />
-              </el-form-item>
-              
-              <el-form-item label="消息内容" prop="message">
-                <el-input 
-                  v-model="contactForm.message" 
-                  placeholder="请输入您的消息内容"
-                  type="textarea"
-                  :rows="6"
-                  :validate-event="false"
-                />
-              </el-form-item>
-              
-              <el-form-item>
-                <el-button 
-                  type="primary" 
-                  size="large"
-                  @click="submitForm"
-                  :loading="formLoading"
-                  class="submit-button"
-                >
-                  发送消息
-                </el-button>
-              </el-form-item>
-            </el-form>
           </div>
-          -->
-        </div>
       </div>
     </section>
-
-    <!-- 地图部分（已注释） -->
-    <!-- <section class="map-section">
-      <div class="map-container">
-        这里可以嵌入实际的地图组件，现在使用占位图
-        <img src="https://picsum.photos/id/1031/1920/600" alt="地图" class="map-image" />
-      </div>
-    </section> -->
-
-    <!-- 常见问题（已注释） -->
-    <!-- <section class="faq-section">
-      <div class="container">
-        <div class="section-title">
-          <h2>常见问题</h2>
-          <div class="title-underline"></div>
-        </div>
-        
-        <el-collapse class="faq-collapse">
-          <el-collapse-item 
-            v-for="faq in faqs" 
-            :key="faq.id"
-            :title="faq.question"
-            class="faq-item"
-          >
-            <p>{{ faq.answer }}</p>
-          </el-collapse-item>
-        </el-collapse>
-      </div>
-    </section> -->
 
     <!-- 页脚 -->
     <Footer />
