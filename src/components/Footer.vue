@@ -15,13 +15,7 @@
             <p class="footer-description">
               专注于Web开发和UI/UX设计，热衷于创造美观且功能强大的数字产品。
             </p>
-            <div class="social-links">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><i class="el-icon-github"></i></a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn"><i class="el-icon-link"></i></a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter"><i class="el-icon-document"></i></a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram"><i class="el-icon-picture"></i></a>
-              <a href="https://weixin.qq.com" target="_blank" rel="noopener noreferrer" class="social-link" title="微信"><i class="el-icon-chat-line-square"></i></a>
-            </div>
+            
           </div>
           
           <!-- 快速链接 -->
@@ -31,33 +25,12 @@
               <li><router-link to="/" class="footer-link">首页</router-link></li>
               <li><router-link to="/about" class="footer-link">关于我</router-link></li>
               <li><router-link to="/portfolio" class="footer-link">作品集</router-link></li>
-              <li><router-link to="/blog" class="footer-link">博客</router-link></li>
+              <li><router-link to="/donate" class="footer-link">支持我</router-link></li>
               <li><router-link to="/contact" class="footer-link">联系我</router-link></li>
             </ul>
           </div>
           
-          <!-- 联系信息 -->
-          <div class="footer-column">
-            <h3 class="footer-title">联系信息</h3>
-            <ul class="contact-list">
-              <li class="contact-item">
-                <i class="el-icon-mobile-phone"></i>
-                <span>+86 138 **** 8888</span>
-              </li>
-              <li class="contact-item">
-                <i class="el-icon-message"></i>
-                <span>contact@zhishihunzi.com</span>
-              </li>
-              <li class="contact-item">
-                <i class="el-icon-location"></i>
-                <span>北京市海淀区中关村科技园区8号楼</span>
-              </li>
-              <li class="contact-item">
-                <i class="el-icon-time"></i>
-                <span>周一至周五: 9:00 - 18:00</span>
-              </li>
-            </ul>
-          </div>
+
           
       
           
@@ -116,8 +89,18 @@ export default {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 .footer-column {
@@ -125,12 +108,12 @@ export default {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;
+  width: 100%;
+  max-width: 300px;
 }
 
 .footer-column:nth-child(1) { animation-delay: 0.1s; }
 .footer-column:nth-child(2) { animation-delay: 0.2s; }
-.footer-column:nth-child(3) { animation-delay: 0.3s; }
-.footer-column:nth-child(4) { animation-delay: 0.4s; }
 
 /* Logo */
 .logo {
@@ -178,32 +161,7 @@ export default {
   margin-bottom: 25px;
 }
 
-/* 社交媒体链接 */
-.social-links {
-  display: flex;
-  gap: 15px;
-}
 
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  color: #999;
-  font-size: 20px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background: #667eea;
-  color: white;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-}
 
 /* 页脚标题 */
 .footer-title {
@@ -231,10 +189,13 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .footer-links li {
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 
 .footer-link {
@@ -376,6 +337,14 @@ export default {
   gap: 20px;
 }
 
+@media (max-width: 768px) {
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+
 .copyright {
   font-size: 14px;
   color: #999;
@@ -404,33 +373,17 @@ export default {
   }
   
   .footer-grid {
-    gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-  
-  .payment-methods {
-    padding: 20px 0;
-  }
-  
-  .payment-icons {
-    gap: 15px;
-    font-size: 28px;
+    gap: 40px;
   }
 }
 
 @media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .footer {
+    padding-top: 50px;
   }
   
   .footer-title {
     font-size: 18px;
-  }
-  
-  .footer-bottom-content {
-    flex-direction: column;
-    text-align: center;
   }
   
   .footer-bottom-links {
@@ -452,12 +405,6 @@ export default {
   
   .logo-text {
     font-size: 20px;
-  }
-  
-  .social-link {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
   }
 }
 
