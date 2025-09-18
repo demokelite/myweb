@@ -28,23 +28,7 @@
       </div>
     </section>
 
-    <!-- 特色内容 -->
-    <section class="features-section">
-      <div class="section-title">
-        <h2>我的技能与服务</h2>
-        <div class="title-underline"></div>
-      </div>
-      
-      <div class="features-grid">
-        <div class="feature-card" v-for="feature in features" :key="feature.id">
-          <div class="feature-icon">
-            <i :class="feature.icon" :style="{ color: feature.color }"></i>
-          </div>
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
-        </div>
-      </div>
-    </section>
+
 
     <!-- 精选作品（已注释） -->
 
@@ -67,36 +51,6 @@ export default {
   },
   data() {
     return {
-      features: [
-        {
-          id: 1,
-          title: 'Web开发',
-          description: '使用现代前端技术构建响应式、高性能的网站和应用程序',
-          icon: 'el-icon-code',
-          color: '#409EFF'
-        },
-        {
-          id: 2,
-          title: 'UI/UX设计',
-          description: '创造美观且用户友好的界面，提供出色的用户体验',
-          icon: 'el-icon-paintbrush',
-          color: '#67C23A'
-        },
-        {
-          id: 3,
-          title: '移动应用',
-          description: '开发跨平台的移动应用，确保在各种设备上都有出色的表现',
-          icon: 'el-icon-mobile',
-          color: '#E6A23C'
-        },
-        {
-          id: 4,
-          title: '后端开发',
-          description: '构建稳定、安全的后端服务，支持前端应用的各种需求',
-          icon: 'el-icon-server',
-          color: '#F56C6C'
-        }
-      ],
       // 精选作品数据
       portfolioItems: [
         {

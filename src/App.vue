@@ -7,7 +7,175 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    // 初始化性能监控
+    this.initPerformanceMonitoring();
+    
+    // 监听路由变化，监控页面切换性能
+    this.$router.afterEach(() => {
+      this.monitorRouteChangePerformance();
+    });
+  },
+  
+  methods: {
+    // 初始化性能监控
+    initPerformanceMonitoring() {
+      // 检查浏览器是否支持 Performance API
+      if ('performance' in window && 'getEntriesByType' in window.performance) {
+        // 等待页面加载完成后收集性能数据
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            this.collectPerformanceMetrics();
+          }, 0);
+        });
+        
+        // 收集 Web Vitals 指标
+        this.collectWebVitals();
+      }
+    },
+    
+    // 收集性能指标
+    collectPerformanceMetrics() {
+      try {
+        const performanceEntries = window.performance.getEntriesByType('navigation');
+        if (performanceEntries && performanceEntries.length > 0) {
+          const entry = performanceEntries[0];
+          
+          const performanceData = {
+            // DNS 查找时间
+            dnsLookup: entry.domainLookupEnd - entry.domainLookupStart,
+            // TCP 连接时间
+            tcpConnection: entry.connectEnd - entry.connectStart,
+            // 首字节时间
+            firstByte: entry.responseStart - entry.navigationStart,
+            // 内容加载时间
+            contentLoad: entry.domContentLoadedEventEnd - entry.navigationStart,
+            // 页面完全加载时间
+            pageLoad: entry.loadEventEnd - entry.navigationStart
+          };
+          
+          console.log('性能指标:', performanceData);
+          
+          // 这里可以将性能数据发送到服务器或第三方分析平台
+          // this.sendPerformanceData(performanceData);
+        }
+      } catch (error) {
+        console.error('收集性能指标时出错:', error);
+      }
+    },
+    
+    // 收集 Web Vitals 指标
+    collectWebVitals() {
+      // 安全地处理 PerformanceObserver 的 entries
+      const safeForEach = (entries, callback) => {
+        if (entries && typeof entries === 'object' && 'getEntries' in entries) {
+          // 对于某些浏览器，entries 是一个带有 getEntries 方法的对象
+          const entryList = entries.getEntries();
+          if (Array.isArray(entryList)) {
+            entryList.forEach(callback);
+          }
+        } else if (Array.isArray(entries)) {
+          // 标准情况下，entries 应该是一个数组
+          entries.forEach(callback);
+        }
+      };
+      
+      // 监控 LCP (最大内容绘制)
+      let lcpEntry = null;
+      const observer = new PerformanceObserver((entries) => {
+        safeForEach(entries, (entry) => {
+          if (entry.startTime > (lcpEntry?.startTime || 0)) {
+            lcpEntry = entry;
+          }
+        });
+        
+        // 当页面可见性状态变化或页面卸载时报告 LCP
+        if (lcpEntry) {
+          console.log('LCP (最大内容绘制):', lcpEntry.startTime);
+        }
+      });
+      
+      observer.observe({ type: 'largest-contentful-paint', buffered: true });
+      
+      // 监控 FID (首次输入延迟)
+      let fidEntry = null;
+      const fidObserver = new PerformanceObserver((entries) => {
+        safeForEach(entries, (entry) => {
+          if (!fidEntry) {
+            fidEntry = entry;
+            console.log('FID (首次输入延迟):', fidEntry.processingStart - fidEntry.startTime);
+          }
+        });
+      });
+      
+      fidObserver.observe({ type: 'first-input', buffered: true });
+      
+      // 监控 CLS (累积布局偏移)
+      let clsValue = 0;
+      let clsEntries = [];
+      let lastEntryTime = 0;
+      
+      const clsObserver = new PerformanceObserver((entries) => {
+        safeForEach(entries, (entry) => {
+          if (!entry.hadRecentInput) {
+            const entryTime = entry.startTime;
+            const sessionWindowStart = entryTime - 1000;
+            
+            // 只保留最近 1 秒内的条目
+            clsEntries = clsEntries.filter((e) => e.startTime >= sessionWindowStart);
+            clsEntries.push(entry);
+            lastEntryTime = Math.max(lastEntryTime, entryTime);
+            
+            // 计算当前 CLS 值
+            clsValue = clsEntries.reduce((total, entry) => total + entry.value, 0);
+            
+            // 当会话窗口结束或页面卸载时报告 CLS
+            if (entryTime - lastEntryTime > 1000 || document.visibilityState === 'hidden') {
+              console.log('CLS (累积布局偏移):', clsValue);
+            }
+          }
+        });
+      });
+      
+      clsObserver.observe({ type: 'layout-shift', buffered: true });
+    },
+    
+    // 监控路由切换性能
+    monitorRouteChangePerformance() {
+      const navigationStart = performance.now();
+      
+      // 监听 DOM 内容更新
+      const updateListener = () => {
+        const navigationEnd = performance.now();
+        const routeChangeTime = navigationEnd - navigationStart;
+        
+        console.log('路由切换时间:', routeChangeTime);
+        
+        // 移除事件监听器，避免重复触发
+        document.removeEventListener('DOMContentLoaded', updateListener);
+      };
+      
+      // 使用 setTimeout 确保在下一个事件循环中执行
+      setTimeout(() => {
+        document.addEventListener('DOMContentLoaded', updateListener);
+      }, 0);
+    },
+    
+    // 发送性能数据到服务器 (示例方法)
+    sendPerformanceData(data) {
+      // 在实际项目中，这里可以实现发送数据到服务器的逻辑
+      // 由于这是演示，我们暂时只在控制台输出
+      console.log('准备发送性能数据:', data);
+      
+      /* 示例实现：
+      axios.post('/api/performance', data)
+        .catch(error => {
+          console.error('发送性能数据失败:', error);
+        });
+      */
+    }
+  }
 };
 </script>
 

@@ -23,10 +23,10 @@
           <div class="about-text">
             <h2>你好，我是<span class="highlight">知识混子</span></h2>
             <p class="intro-text">
-              我是一名充满激情的全栈开发者，拥有超过5年的Web开发经验。我热爱创造美观、实用且高效的数字产品，帮助企业和个人实现他们的愿景。
+              我是一名充满激情的学生。我热爱创造美观、实用且高效的数字产品，帮助企业和个人实现他们的愿景。
             </p>
             <p>
-              我的专业领域包括前端开发、后端开发、UI/UX设计和移动应用开发。我擅长使用现代技术栈解决复杂问题，并且始终保持学习新技术的热情。
+              我擅长使用现代技术栈解决复杂问题，并且始终保持学习新技术的热情。
             </p>
             <p>
               我相信优秀的产品不仅需要出色的功能，还需要卓越的用户体验。因此，我在每一个项目中都注重细节，力求完美。
@@ -39,35 +39,18 @@
               </div>
               <div class="info-item">
                 <span class="info-label">职业:</span>
-                <span class="info-value">全栈开发者</span>
-              </div>
-              <div class="info-item">
-                <span class="info-label">经验:</span>
-                <span class="info-value">5+ 年</span>
+                <span class="info-value">学生</span>
               </div>
               <div class="info-item">
                 <span class="info-label">邮箱:</span>
-              <span class="info-value">contact@zhishihunzi.com</span>
+              <span class="info-value">zhishihunziqqcom@qq.com</span>
               </div>
             </div>
-            
-            <div class="social-links">
-              <a href="#" class="social-link" title="GitHub"><i class="el-icon-github"></i></a>
-              <a href="#" class="social-link" title="LinkedIn"><i class="el-icon-link"></i></a>
-              <a href="#" class="social-link" title="Twitter"><i class="el-icon-document"></i></a>
-              <a href="#" class="social-link" title="Instagram"><i class="el-icon-picture"></i></a>
-            </div>
-            
-            <el-button type="primary" class="download-btn">下载简历</el-button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 技能部分（已注释） -->
-
-    <!-- 经历部分（已注释） -->
-    <!-- 教育背景（已注释） -->
 
     <!-- 页脚 -->
     <Footer />

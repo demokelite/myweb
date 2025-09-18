@@ -89,20 +89,7 @@
 <script>
 export default {
   name: 'Footer',
-  mounted() {
-    // 添加页面滚动事件，控制返回顶部按钮的显示
-    window.addEventListener('scroll', () => {
-      const footer = document.querySelector('.footer');
-      const scrollPosition = window.scrollY;
-      
-      if (scrollPosition > 500) {
-        footer.classList.add('visible');
-      }
-    });
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', () => {});
-  }
+
 };
 </script>
 
@@ -112,12 +99,8 @@ export default {
   color: #f5f5f5;
   padding-top: 80px;
   padding-bottom: 20px;
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-
-.footer.visible {
   opacity: 1;
+  transition: all 0.5s ease;
 }
 
 /* 页脚内容 */
