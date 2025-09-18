@@ -41,7 +41,7 @@
                 </div>
                 <div class="contact-text">
                   <h3>邮箱</h3>
-                  <p>871684184@qq.com</p>
+                  <p>zhishihunziqqcom@qq.com</p>
                 </div>
               </div>
               
