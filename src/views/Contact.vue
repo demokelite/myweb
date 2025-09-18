@@ -31,7 +31,7 @@
                 </div>
                 <div class="contact-text">
                   <h3>电话</h3>
-                  <p>+86 138 **** 8888</p>
+                  <p>+86 139啤酒白酒葡萄酒</p>
                 </div>
               </div>
               
