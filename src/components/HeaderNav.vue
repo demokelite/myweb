@@ -42,6 +42,15 @@
             </li>
             <li class="nav-item">
               <router-link 
+                to="/blog" 
+                class="nav-link"
+                :class="{ active: currentRoute === '/blog' }"
+              >
+                博客
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link 
                 to="/contact" 
                 class="nav-link"
                 :class="{ active: currentRoute === '/contact' }"
@@ -119,6 +128,16 @@
                 @click="toggleMobileMenu"
               >
                 作品集
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link 
+                to="/blog" 
+                class="nav-link"
+                :class="{ active: currentRoute === '/blog' }"
+                @click="toggleMobileMenu"
+              >
+                博客
               </router-link>
             </li>
             <li class="nav-item">

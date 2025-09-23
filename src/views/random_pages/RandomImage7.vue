@@ -52,6 +52,31 @@
       </div>
     </section>
 
+    <!-- 工具下载区域 -->
+    <section class="tool-download-section">
+      <div class="container">
+        <h2 class="tool-title">网易云音乐排行榜歌曲下载工具</h2>
+        <div class="tool-description">
+          <p>一个简洁高效的网易云音乐排行榜歌曲下载工具，带图形化界面，让你轻松获取喜爱的音乐 🎶</p>
+          <ul class="feature-list">
+            <li>🖥️ 直观友好的图形化界面，操作简单易用</li>
+            <li>📊 自动获取网易云音乐排行榜歌曲列表</li>
+            <li>⏳ 实时显示下载进度，一目了然</li>
+            <li>⏸️ 支持下载任务的暂停与继续</li>
+            <li>🛑 可随时停止当前下载任务</li>
+          </ul>
+        </div>
+        <div class="tool-actions">
+          <el-button type="primary" size="large" @click="downloadTool">
+            <i class="el-icon-download"></i> 下载工具压缩包
+          </el-button>
+          <el-button size="large" @click="downloadExe">
+            <i class="el-icon-windows"></i> 下载可执行文件
+          </el-button>
+        </div>
+      </div>
+    </section>
+
     <!-- 返回按钮 -->
     <div class="back-button-container">
       <el-button type="default" @click="goBack" icon="el-icon-arrow-left">
@@ -121,6 +146,24 @@ export default {
       const link = document.createElement('a');
       link.href = this.imageUrl;
       link.download = `random-image7-${Date.now()}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
+    // 下载工具压缩包
+    downloadTool() {
+      const link = document.createElement('a');
+      link.href = '/resource/NetEase Cloud Music Chart Song Download Tool/NetEase Cloud Music Chart Song Download Tool.zip';
+      link.download = '网易云音乐排行榜歌曲下载工具.zip';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
+    // 下载可执行文件
+    downloadExe() {
+      const link = document.createElement('a');
+      link.href = '/resource/NetEase Cloud Music Chart Song Download Tool/MusicDownloader.exe';
+      link.download = 'MusicDownloader.exe';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -262,11 +305,62 @@ export default {
   font-size: 14px;
 }
 
+/* 工具下载区域样式 */
+.tool-download-section {
+  background-color: white;
+  padding: 60px 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+.tool-download-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.tool-title {
+  font-size: 32px;
+  color: #303133;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.tool-description {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  color: #606266;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.feature-list li {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.tool-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 /* 返回按钮 */
 .back-button-container {
   text-align: center;
   padding: 20px 0;
-  background-color: white;
+  background-color: #f5f7fa;
+  border-top: 1px solid #e5e5e5;
 }
 
 /* 响应式设计 */
@@ -291,6 +385,20 @@ export default {
   .image-actions .el-button {
     width: 100%;
     max-width: 200px;
+  }
+  
+  .tool-title {
+    font-size: 24px;
+  }
+  
+  .tool-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tool-actions .el-button {
+    width: 100%;
+    max-width: 300px;
   }
 }
 </style>

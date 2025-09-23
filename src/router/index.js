@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import Portfolio from '@/views/Portfolio.vue';
+import Blog from '@/views/Blog.vue';
+import BlogPost from '@/views/BlogPost.vue';
 import Contact from '@/views/Contact.vue';
 import RandomVideo from '@/views/random_pages/RandomVideo.vue';
 import RandomImage from '@/views/random_pages/RandomImage.vue';
@@ -88,6 +90,16 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: Contact
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: Blog
+    },
+    {
+      path: '/blog/:id',
+      name: 'blog-post',
+      component: BlogPost
     },
     {
       path: '/privacy-policy',
