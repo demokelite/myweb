@@ -19,6 +19,7 @@ import PrivacyPolicy from '@/views/PrivacyPolicy.vue';
 import TermsOfService from '@/views/TermsOfService.vue';
 import CookiePolicy from '@/views/CookiePolicy.vue';
 import Donate from '@/views/Donate.vue';
+import UpdateLog from '@/views/UpdateLog.vue';
 
 Vue.use(Router);
 
@@ -116,12 +117,7 @@ export default new Router({
       name: 'cookie-policy',
       component: CookiePolicy
     },
-    {
-      path: '/donate',
-      name: 'donate',
-      component: Donate
-    }
-  ],
+    {      path: '/donate',      name: 'donate',      component: Donate    },    {      path: '/update-log',      name: 'update-log',      component: UpdateLog    }  ],
   // eslint-disable-next-line no-unused-vars
   scrollBehavior (to, from, savedPosition) {
     // 滚动到顶部

@@ -27,6 +27,7 @@
               <li><router-link to="/portfolio" class="footer-link">作品集</router-link></li>
               <li><router-link to="/donate" class="footer-link">支持我</router-link></li>
               <li><router-link to="/contact" class="footer-link">联系我</router-link></li>
+              <li><router-link to="/update-log" class="footer-link">更新日志</router-link></li>
             </ul>
           </div>
           
