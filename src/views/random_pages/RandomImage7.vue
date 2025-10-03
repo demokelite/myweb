@@ -37,31 +37,6 @@
         </div>
       </div>
     </section>
-    
-    <!-- 壁纸爬取工具下载区域 -->
-    <section class="tool-download-section">
-      <div class="container">
-        <h2 class="tool-title">壁纸爬取工具</h2>
-        <div class="tool-description">
-          <p>一个高效的壁纸爬取工具，帮你轻松获取高清精美壁纸，美化你的桌面环境 🖼️</p>
-          <ul class="feature-list">
-            <li>🖥️ 简洁直观的用户界面，操作简便</li>
-            <li>🔍 支持多种壁纸分辨率和风格选择</li>
-            <li>⚡ 高效下载，支持批量获取多张壁纸</li>
-            <li>🗂️ 自动分类保存，方便管理</li>
-            <li>🎨 支持自定义下载路径和命名规则</li>
-          </ul>
-        </div>
-        <div class="tool-actions">
-          <el-button type="primary" size="large" @click="downloadWallpaperTool">
-            <i class="el-icon-download"></i> 下载工具压缩包
-          </el-button>
-          <el-button size="large" @click="downloadWallpaperExe">
-            <i class="el-icon-windows"></i> 下载可执行文件
-          </el-button>
-        </div>
-      </div>
-    </section>
 
     <!-- 返回按钮 -->
     <div class="back-button-container">
@@ -150,24 +125,6 @@ export default {
       const link = document.createElement('a');
       link.href = '/resource/NetEase Cloud Music Chart Song Download Tool/MusicDownloader.exe';
       link.download = 'MusicDownloader.exe';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    },
-    // 下载壁纸爬取工具压缩包
-    downloadWallpaperTool() {
-      const link = document.createElement('a');
-      link.href = '/resource/Wallpaper Scraping Tool/Wallpaper Scraping Tool.zip';
-      link.download = '壁纸爬取工具.zip';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    },
-    // 下载壁纸爬取工具可执行文件
-    downloadWallpaperExe() {
-      const link = document.createElement('a');
-      link.href = '/resource/Wallpaper Scraping Tool/壁纸爬取工具.exe';
-      link.download = '壁纸爬取工具.exe';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
